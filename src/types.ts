@@ -16,6 +16,7 @@ export interface ServiceItem {
   warrantyEn: string;
   startingPrice: number;
   highlight?: boolean;
+  imageSrc?: string;
   featuresBn: string[];
   featuresEn: string[];
 }
@@ -105,6 +106,6 @@ export interface ShopInfo {
   workingHoursEn: string;
   stats: ShopStat[];
   announcement?: AnnouncementConfig;
-  backgroundTheme?: 'tech-circuit' | 'dark-slate' | 'clean-matrix';
+  backgroundTheme?: 'tech-circuit' | 'dark-slate' | 'clean-matrix' | 'canvas-clean';
 }
 

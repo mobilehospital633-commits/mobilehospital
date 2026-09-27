@@ -1,171 +1,209 @@
 import React from 'react';
-import { ShieldCheck, Zap, Award, CheckCircle2, ArrowRight, PhoneCall, Sparkles, AlertCircle } from 'lucide-react';
+import { ArrowRight, PhoneCall, CheckCircle2 } from 'lucide-react';
 import { SHOP_INFO as DEFAULT_SHOP_INFO } from '../data/mockData';
 import { Language, ShopInfo } from '../types';
+import heroWorkbenchImg from '../assets/images/hero_repair_workbench_1790325363654.jpg';
 
 interface HeroProps {
   lang: Language;
-  onOpenBooking: () => void;
   shopInfo?: ShopInfo;
 }
 
 export const Hero: React.FC<HeroProps> = ({ 
   lang, 
-  onOpenBooking,
   shopInfo = DEFAULT_SHOP_INFO
 }) => {
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-stone-900 via-stone-850 to-stone-900 text-white pt-10 pb-16 sm:pt-16 sm:pb-24">
-      {/* Subtle modern background glow and circuit grid */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px]"></div>
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 text-slate-900 pt-10 pb-16 sm:pt-16 sm:pb-24 border-b border-slate-200">
+      {/* Background ambient accents */}
+      <div className="absolute inset-0 opacity-40 pointer-events-none bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Hero Container directly implementing the screenshot code with modern craftsmanship */}
-        <div className="text-center max-w-3xl mx-auto">
+        {/* Top Kicker - Zero Pill Discipline + Refined Script Flourish */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium">
+            <span className="text-emerald-700 tracking-wide font-display font-bold">
+              {lang === 'bn' ? 'কালীতলা, দত্তপুলিয়া' : 'Kalitala, Duttapulia'}
+            </span>
+            <span className="text-slate-300" aria-hidden="true">·</span>
+            <span>{lang === 'bn' ? 'নদিয়া জেলা (পিন - ৭৪১৫০৪)' : 'Nadia District (Pin 741504)'}</span>
+            <span className="text-slate-300" aria-hidden="true">·</span>
+            <span className="text-emerald-800 font-semibold">{lang === 'bn' ? '৮+ বছরের বিশ্বস্ত সেবা' : '8+ Years of Trusted Care'}</span>
+          </div>
+
+          {/* Script style signature tagline */}
+          <div className="font-script text-emerald-800 text-2xl sm:text-3xl font-bold tracking-wide -rotate-1 drop-shadow-xs">
+            {lang === 'bn' ? '✨ আস্থা ও ভালোবাসায় আপনার প্রিয় মুঠোফোনের নতুন জীবন' : '✨ Bringing New Life to Your Beloved Phone'}
+          </div>
+        </div>
+
+        {/* 2-Column Split Hero Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-medium mb-5 shadow-sm">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span>
-              {lang === 'bn' 
-                ? '★ মোবাইল রিপেয়ারিং সেন্টার - দ্রুত ও নির্ভরযোগ্য সেবা' 
-                : '★ Mobile Repairing Center - Fast & Reliable Service'}
-            </span>
-          </div>
+          {/* Left Column: Headlines & Action */}
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[4rem] font-black tracking-tight text-slate-900 leading-[1.12] text-balance">
+              {lang === 'bn' ? (
+                <>
+                  অভিজ্ঞ হাতের নিখুঁত ছোঁয়ায় আপনার প্রিয় ফোনের <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">আস্থার চিকিৎসা ও নতুন জীবন</span>
+                </>
+              ) : (
+                <>
+                  Fast & Precision <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">Smartphone Care</span> You Can Trust
+                </>
+              )}
+            </h1>
 
-          {/* Screenshot H1 Match */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4">
-            {lang === 'bn' ? shopInfo.nameBn : shopInfo.nameEn}
-          </h1>
-
-          {/* Screenshot H2 Match: আপনার প্রিয় ফোনের সেরা যত্ন! */}
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-emerald-400 mb-6">
-            {lang === 'bn' ? shopInfo.taglineBn : shopInfo.taglineEn}
-          </h2>
-
-          {/* Screenshot P Match */}
-          <p className="text-base sm:text-lg lg:text-xl text-stone-300 leading-relaxed max-w-2xl mx-auto mb-8">
-            {lang === 'bn' ? shopInfo.subtitleBn : shopInfo.subtitleEn}
-            <span className="block mt-2 text-sm text-stone-400 font-normal">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
               {lang === 'bn'
-                ? 'ডিসপ্লে, ব্যাটারি, চার্জিং পোর্ট থেকে শুরু করে জটিল মাদারবোর্ড আইসি লেভেল পর্যন্ত অভিজ্ঞ ইঞ্জিনিয়ার দ্বারা আপনার চোখের সামনে মেরামত করা হয়।'
-                : 'From displays, batteries, and charging ports to intricate motherboard IC chips, repaired transparently by master technicians.'}
-            </span>
-          </p>
+                ? 'কালীতলা, দত্তপুলিয়ার প্রাণকেন্দ্রে অবস্থিত মোবাইল হাসপাতালে আপনার চোখের সামনেই সম্পন্ন হয় ডিসপ্লে, ব্যাটারি, চার্জিং পোর্ট থেকে শুরু করে জটিল মাদারবোর্ড আইসি লেভেল রিপেয়ার। কোনো গোপনীয়তা বা ভয় নেই—উন্মুক্ত কাউন্টার, শতভাগ জেনুইন পার্টস এবং প্রতিটি কাজের সাথে সুনির্দিষ্ট লিখিত ওয়ারেন্টি।'
+                : 'From original screen and battery replacements to micro-soldering and motherboard IC repairs. Fixed transparently in front of your eyes with genuine parts and official written replacement warranty.'}
+            </p>
 
-          {/* Screenshot CTA Button Match: এখনই যোগাযোগ করুন (#contact btn) + Secondary actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-12">
-            <a
-              href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-base font-bold transition-all shadow-lg hover:shadow-emerald-600/25 active:scale-95"
-              id="hero-contact-btn"
-            >
-              <span>{lang === 'bn' ? 'এখনই যোগাযোগ করুন' : 'Contact Us Now'}</span>
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            {/* Clear Core Promises */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm text-slate-700 font-medium">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{lang === 'bn' ? 'উন্মুক্ত কাউন্টারে চোখের সামনে সরাসরি মেরামত' : 'Open-counter live repairs in front of you'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{lang === 'bn' ? 'শতভাগ খাঁটি ও পরীক্ষিত জেনুইন স্পেয়ার পার্টস' : '100% genuine & verified parts'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{lang === 'bn' ? 'সমস্যা নির্ণয়ে কোনো ফি নেই (সম্পূর্ণ ফ্রি ডায়াগনসিস)' : 'Free inspection & zero diagnosis fee'}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{lang === 'bn' ? 'নির্দিষ্ট মেয়াদের লিখিত রিপ্লেসমেন্ট ওয়ারেন্টি কার্ড' : 'Written replacement warranty card on every job'}</span>
+              </div>
+            </div>
 
-            <button
-              onClick={() => onOpenBooking()}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-stone-800 hover:bg-stone-750 border border-stone-700 text-stone-100 text-base font-semibold transition-all hover:border-emerald-500/50"
-              id="hero-booking-btn"
-            >
-              <Zap className="w-4 h-4 text-emerald-400" />
-              <span>{lang === 'bn' ? 'অনলাইন রিপেয়ার বুকিং' : 'Book Online Repair'}</span>
-            </button>
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3.5 pt-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm tracking-wide transition-all shadow-md active:scale-98"
+                id="hero-contact-btn"
+              >
+                <span>{lang === 'bn' ? 'সরাসরি যোগাযোগ ও দিকনির্দেশনা' : 'Get Location & Directions'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
 
-            <a
-              href="#services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-stone-300 hover:text-white text-sm font-medium transition-colors"
-              id="hero-services-btn"
-            >
-              <span>{lang === 'bn' ? 'আমাদের সেবা দেখুন' : 'View Services'}</span>
-              <span className="text-emerald-400">→</span>
-            </a>
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-semibold text-sm transition-colors shadow-xs"
+                id="hero-services-btn"
+              >
+                <span>{lang === 'bn' ? 'আমাদের সেবাসমূহ বিস্তারিত দেখুন' : 'Explore Services'}</span>
+              </a>
+
+              <a
+                href={`tel:${shopInfo.phoneRaw}`}
+                className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl text-slate-800 hover:text-emerald-600 font-mono text-sm font-semibold transition-colors"
+                id="hero-call-link"
+              >
+                <PhoneCall className="w-4 h-4 text-emerald-600" />
+                <span>{shopInfo.phoneHotline}</span>
+              </a>
+            </div>
+
           </div>
 
-          {/* Quick 4 Trust Highlights */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
-            <div className="p-3.5 rounded-xl bg-stone-800/80 border border-stone-750 flex items-start gap-3">
-              <div className="p-2 rounded-lg bg-emerald-950 text-emerald-400 shrink-0">
-                <Zap className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-100">
-                  {lang === 'bn' ? '৩০ মিনিটে সার্ভিস' : '30-Min Express'}
-                </h4>
-                <p className="text-xs text-stone-400">
-                  {lang === 'bn' ? 'অধিকাংশ সাধারণ রিপেয়ার' : 'For common screen/battery'}
-                </p>
-              </div>
-            </div>
+          {/* Right Column: High-Fidelity Visual Anchor (Workbench Photo) */}
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              
+              {/* Subtle Ambient Back-Glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 via-sky-500/10 to-transparent rounded-2xl blur-lg opacity-80"></div>
 
-            <div className="p-3.5 rounded-xl bg-stone-800/80 border border-stone-750 flex items-start gap-3">
-              <div className="p-2 rounded-lg bg-emerald-950 text-emerald-400 shrink-0">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-100">
-                  {lang === 'bn' ? '১০০% অরিজিনাল পার্টস' : 'Original Parts'}
-                </h4>
-                <p className="text-xs text-stone-400">
-                  {lang === 'bn' ? 'অথেনটিক কোয়ালিটি নিশ্চয়তা' : 'OEM verified components'}
-                </p>
-              </div>
-            </div>
+              {/* Main Image Container */}
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+                <img
+                  src={heroWorkbenchImg}
+                  alt={lang === 'bn' ? 'মোবাইল হসপিটালের প্রফেশনাল ওয়ার্কবেঞ্চ ও টেকনিশিয়ান সরঞ্জাম' : 'Mobile Hospital professional precision repair workbench'}
+                  className="w-full h-80 sm:h-96 object-cover object-center"
+                  loading="eager"
+                  referrerPolicy="no-referrer"
+                />
 
-            <div className="p-3.5 rounded-xl bg-stone-800/80 border border-stone-750 flex items-start gap-3">
-              <div className="p-2 rounded-lg bg-emerald-950 text-emerald-400 shrink-0">
-                <Award className="w-5 h-5" />
-              </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-100">
-                  {lang === 'bn' ? 'ওয়ারেন্টি কার্ড' : 'Written Warranty'}
-                </h4>
-                <p className="text-xs text-stone-400">
-                  {lang === 'bn' ? '৩০ থেকে ১৮০ দিন পর্যন্ত' : '30 to 180 days coverage'}
-                </p>
-              </div>
-            </div>
+                {/* Dark gradient scrim at the bottom for crystal-clear readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent"></div>
 
-            <div className="p-3.5 rounded-xl bg-stone-800/80 border border-stone-750 flex items-start gap-3">
-              <div className="p-2 rounded-lg bg-emerald-950 text-emerald-400 shrink-0">
-                <CheckCircle2 className="w-5 h-5" />
+                {/* Bottom Overlay Info Card */}
+                <div className="absolute bottom-0 inset-x-0 p-5 text-white">
+                  <div className="flex items-center justify-between text-xs text-slate-300 mb-1">
+                    <span className="font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                      {lang === 'bn' ? 'দত্তপুলিয়া সার্ভিস সেন্টার' : 'Duttapulia Service Lab'}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-emerald-300 font-medium">
+                      <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+                      {lang === 'bn' ? 'লাইভ কাউন্টার চালু' : 'Workshop Active'}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-bold text-white leading-snug">
+                    {lang === 'bn' ? 'প্রিসিশন সরঞ্জাম ও ডিজিটাল মাইক্রোস্কোপিক রিপেয়ার' : 'Precision Micro-Soldering & Display Lamination'}
+                  </h3>
+
+                  <p className="text-xs text-slate-300 mt-1">
+                    {lang === 'bn' 
+                      ? 'কালীতলা, দত্তপুলিয়া, নদিয়া — প্রতিদিন সকাল ৯:০০ টা থেকে রাত ১০:০০ টা পর্যন্ত উন্মুক্ত।' 
+                      : 'Kalitala, Duttapulia, Nadia — Open 9:00 AM to 10:00 PM Daily.'}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-bold text-stone-100">
-                  {lang === 'bn' ? 'ফ্রি ডায়াগনসিস' : 'Free Diagnosis'}
-                </h4>
-                <p className="text-xs text-stone-400">
-                  {lang === 'bn' ? 'সমস্যা নির্ণয়ে কোনো ফি নেই' : 'No fix, no fee policy'}
-                </p>
-              </div>
+
             </div>
           </div>
 
         </div>
 
-      </div>
+        {/* Tabular Numerical KPIs Bar */}
+        <div className="mt-14 pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+          
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
+              ১৫,০০০<span className="text-emerald-600">+</span>
+            </div>
+            <div className="text-xs text-slate-600 font-medium">
+              {lang === 'bn' ? 'সফল ডিভাইস মেরামত ও সন্তুষ্ট গ্রাহক' : 'Smartphones Repaired Successfully'}
+            </div>
+          </div>
 
-      {/* Emergency Phone Call Banner */}
-      <div className="mt-12 border-t border-stone-800 bg-stone-950/60 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-stone-300">
-          <span className="flex items-center gap-2 text-emerald-400 font-semibold">
-            <AlertCircle className="w-4 h-4" />
-            {lang === 'bn' ? 'ফোন হঠাৎ বন্ধ বা চালু হচ্ছে না?' : 'Phone dead or won’t power on?'}
-          </span>
-          <span className="hidden sm:inline text-stone-500">|</span>
-          <span>{lang === 'bn' ? 'সরাসরি হেড টেকনিশিয়ান হটলাইন:' : 'Call Master Tech:'}</span>
-          <a
-            href={`tel:${shopInfo.phoneRaw}`}
-            className="font-bold text-white hover:text-emerald-400 underline underline-offset-4 flex items-center gap-1.5"
-            id="hero-call-link"
-          >
-            <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
-            {shopInfo.phoneHotline}
-          </a>
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
+              ৩০ <span className="text-emerald-600 text-lg sm:text-xl font-sans font-bold">{lang === 'bn' ? 'মিনিট' : 'Min'}</span>
+            </div>
+            <div className="text-xs text-slate-600 font-medium">
+              {lang === 'bn' ? 'গড় ডিসপ্লে ও ব্যাটারি এক্সপ্রেস সার্ভিস' : 'Average Express Repair Time'}
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
+              ১০০<span className="text-emerald-600">%</span>
+            </div>
+            <div className="text-xs text-slate-600 font-medium">
+              {lang === 'bn' ? 'খাঁটি জেনুইন ও পরীক্ষিত যন্ত্রাংশ' : 'Original Certified Parts'}
+            </div>
+          </div>
+
+          <div className="p-4 rounded-xl bg-white border border-slate-200/90 shadow-xs space-y-1">
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono tabular-nums tracking-tight">
+              {lang === 'bn' ? '০ টাকা' : '₹0 Free'}
+            </div>
+            <div className="text-xs text-slate-600 font-medium">
+              {lang === 'bn' ? 'সম্পূর্ণ বিনামূল্যে প্রাথমিক সমস্যা নির্ণয়' : 'Diagnosis & Inspection Fee'}
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );
